@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rushikeshs-Cuelogic/React.git"
+    "url": "git+https://github.com/Rushikeshs-Cuelogic/react-redux"
   },
   "author": "rushikesh",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Rushikeshs-Cuelogic/React/issues"
+    "url": "https://github.com/Rushikeshs-Cuelogic/react-redux/issues"
   },
-  "homepage": "https://github.com/Rushikeshs-Cuelogic/React#readme",
+  "homepage": "https://github.com/Rushikeshs-Cuelogic/react-redux#readme",
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
