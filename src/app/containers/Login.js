@@ -2,9 +2,9 @@ import React from "react";
 import { browserHistory } from "react-router";
 import { connect } from "react-redux";
 import { userSigninRequest } from "../actions/login-action";
-import { SignInForm } from '../components/login';
+import { SignInForm } from "../components/login";
 
-class Login extends React.Component {
+export class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = { user: { username: '', password: '' } }

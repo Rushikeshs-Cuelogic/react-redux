@@ -1,44 +1,44 @@
 import React from "react";
 import { connect } from "react-redux";
 import { userRegisterRequest } from "../actions/register-action";
-class Register extends React.Component {
+import { RegistrationForm } from "../components/register";
+
+export class Register extends React.Component {
     constructor(props) {
-        super();
+        super(props);
+        this.state = {
+            registeredUser: { username: '', email: '', password: '' }
+        }
     }
+
+    handleChange(event) {
+        const field = event.target.name;
+        const credentials = this.state.registeredUser;
+        credentials[field] = event.target.value;
+        return this.setState({ registeredUser: credentials });
+    }
+
     onRegister() {
-        let username = this.refs.username.value;
-        let password = this.refs.password.value;
-        let email = this.refs.email.value;
-        var registeredUser = {
-            username: username,
-            email: email,
-            password: password
-        };
-        this.props.onRegister(registeredUser);
+        this.props.onRegister(this.state.registeredUser);
     }
     render() {
         return (
-            <div className="container">
-                <div className="form-group">
-                    <label className="control-label">Username</label>
-                    <input type="text" placeholder="Name" ref="username" className="form-control" />
-                </div>
-                <div className="form-group">
-                    <label className="control-label">Email</label>
-                    <input type="text" placeholder="Email" ref="email" className="form-control" />
-                </div>
-                <div className="form-group">
-                    <label className="control-label">Password</label>
-                    <input type="text" placeholder="Password" ref="password" className="form-control" />
-                </div>
-                <div className="form-group">
-                    <button className="btn btn-primary" onClick={() => this.onRegister()} > Register</button>
-                </div>
+            <div>
+                <RegistrationForm
+                    onRegister={this.onRegister.bind(this)}
+                    handleChange={this.handleChange.bind(this)}
+                />
             </div>
-
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        registeredUser: state.registeredUser
+    }
+}
+
 
 const matchDispatchToProps = (dispatch) => {
     return {
@@ -47,9 +47,4 @@ const matchDispatchToProps = (dispatch) => {
         }
     }
 }
-export default connect(null, matchDispatchToProps)(Register);
-
-
-
-
-
+export default connect(mapStateToProps, matchDispatchToProps)(Register);
