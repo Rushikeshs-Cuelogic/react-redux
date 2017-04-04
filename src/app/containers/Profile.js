@@ -1,6 +1,8 @@
 import React from "react";
 import { browserHistory, Link } from "react-router";
-export class Profile extends React.Component {
+import { connect } from "react-redux";
+
+class Profile extends React.Component {
     onLogOut() {
         browserHistory.push("/");
     }
@@ -17,17 +19,22 @@ export class Profile extends React.Component {
                     </div>
                 </nav>
                 <hr />
-                <label>User Id:{this.props.params.userId}</label>
+                <label>User Id:{ this.props.user.user.username}</label>
                 <hr />
-                <label>Email:{this.props.params.email}</label>
+                <label>Email:{this.props.user.user.email}</label>
                 <hr />
             </div>
         );
     }
 }
-Profile.propTypes = {
-    userId: React.PropTypes.string,
-    email: React.PropTypes.string
-};
+
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps)(Profile);
+
 
 

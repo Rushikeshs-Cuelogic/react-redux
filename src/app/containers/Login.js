@@ -1,38 +1,50 @@
 import React from "react";
 import { browserHistory } from "react-router";
-export class Login extends React.Component {
-    constructor() {
+import { connect } from "react-redux";
+import { userSigninRequest } from "../actions/login-action"
+
+class Login extends React.Component {
+    constructor(props) {
         super();
-        this.state = {
-            user: {
-                password: "rushi",
-                email: "abc"
-            }
-        }
     }
+
     onLogin() {
         let username = this.refs.userId.value;
         let password = this.refs.password.value;
-        if (username && password && this.state.user.email === username && this.state.user.password === password) {
-            browserHistory.push("/profile/" + this.refs.userId.value + "/" + this.state.user.email);
-        }
-        else{
-            alert('Please provide valid username or password');
-        }
+        var user = {
+            username: username,
+            password: password
+        };
+        this.props.onLogin(user);
     }
-
-    
 
     render() {
         return (
-            <div className="container-fluid">
-                  <input type="text" placeholder="Username" ref="userId"/>
-                  <hr/>
-                    <input type="Password" ref="password"  placeholder="Password"/>
-                <hr/>
+            <div className="container">
+                <div className="form-group">
+                    <label className="control-label">Username</label>
+                    <input type="text" placeholder="Username" required ref="userId" className="form-control" />
+                </div>
+                <div className="form-group">
+                    <label className="control-label">Password</label>
+                    <input type="Password" ref="password" placeholder="Password" className="form-control" />
+                </div>
+                <div className="form-group">
                     <button onClick={() => this.onLogin()} className="btn btn-primary">Login</button>
-                <hr/>
+                </div>
             </div>
+
         );
     }
 }
+
+
+const matchDispatchToProps = (dispatch) => {
+    return {
+        onLogin: (data) => {
+            dispatch(userSigninRequest(data))
+        }
+    }
+}
+export default connect(null, matchDispatchToProps)(Login);
+

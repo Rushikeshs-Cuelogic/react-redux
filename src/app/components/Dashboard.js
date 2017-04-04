@@ -3,6 +3,7 @@ import {Link} from "react-router";
 
 export const Dashboard = (props) => {
     return (
+         <div className="container-fluid">
         <nav className="navbar navbar-default">
             <div className="container">
                 <div className="navbar-header">
@@ -13,6 +14,7 @@ export const Dashboard = (props) => {
                 </div>
             </div>
         </nav>
+        </div>
 
     );
 }
