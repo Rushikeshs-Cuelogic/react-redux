@@ -1,43 +1,62 @@
 import React from "react";
 import { browserHistory } from "react-router";
 import { connect } from "react-redux";
-import { userSigninRequest } from "../actions/login-action"
+import { userSigninRequest } from "../actions/login-action";
+import { SignInForm } from '../components/login';
 
 class Login extends React.Component {
     constructor(props) {
+        console.log(props);
         super();
+        this.state = {
+            user: {
+                username: '',
+                password: ''
+            }
+        }
+    }
+
+    handleChange(event){
+        const field = event.target.name;
+        const credentials = this.state.user;
+        user[field] = event.target.value;
+        return this.setState({ user: user });
     }
 
     onLogin() {
-        let username = this.refs.userId.value;
-        let password = this.refs.password.value;
-        var user = {
-            username: username,
-            password: password
-        };
-        this.props.onLogin(user);
+        console.log("login",this.state.user)
+        this.props.onLogin(this.state.user);
     }
 
     render() {
         return (
-            <div className="container">
-                <div className="form-group">
-                    <label className="control-label">Username</label>
-                    <input type="text" placeholder="Username" required ref="userId" className="form-control" />
-                </div>
-                <div className="form-group">
-                    <label className="control-label">Password</label>
-                    <input type="Password" ref="password" placeholder="Password" className="form-control" />
-                </div>
-                <div className="form-group">
-                    <button onClick={() => this.onLogin()} className="btn btn-primary">Login</button>
-                </div>
+            <div>
+                <SignInForm
+                    onLogin={this.onLogin}
+                    handleChange={this.handleChange}
+                />
             </div>
-
         );
     }
 }
-
+/*<div className="container">
+               <div className="form-group">
+                   <label className="control-label">Username</label>
+                   <input type="text" placeholder="Username" required ref="userId" className="form-control" />
+               </div>
+               <div className="form-group">
+                   <label className="control-label">Password</label>
+                   <input type="Password" ref="password" placeholder="Password" className="form-control" />
+               </div>
+               <div className="form-group">
+                   <button onClick={() => this.onLogin()} className="btn btn-primary">Login</button>
+               </div>
+           </div>*/
+const mapStateToProps = (state) => {
+    return {
+        user: state.user,
+    }
+}
 
 const matchDispatchToProps = (dispatch) => {
     return {
