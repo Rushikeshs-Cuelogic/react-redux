@@ -2,7 +2,7 @@ import React from "react";
 import * as actionTypes from "../constants/actionTypes";
 import store from "../store";
 
-export const userSigninRequest=(userData)=> {
+export const userSigninRequest = (userData) => {
     var storeState = store.getState();
     if (storeState.registeredUser.registeredUser !== undefined) {
         if (storeState.registeredUser.registeredUser.username == userData.username && storeState.registeredUser.registeredUser.password == userData.password) {
@@ -20,6 +20,6 @@ export const userSigninRequest=(userData)=> {
     }
     else {
         alert("Invalid UserId & Password");
-        
+
     }
 }

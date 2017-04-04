@@ -19,7 +19,7 @@ class Profile extends React.Component {
                     </div>
                 </nav>
                 <hr />
-                <label>User Id:{ this.props.user.user.username}</label>
+                <label>User Id:{this.props.user.user.username}</label>
                 <hr />
                 <label>Email:{this.props.user.user.email}</label>
                 <hr />

@@ -4,8 +4,8 @@ import { render } from "react-dom";
 import { Root } from "./components/root";
 import { Dashboard } from "./components/dashboard";
 import Login from "./containers/login";
-import  Register  from "./containers/register";
-import  Profile  from "./containers/profile";
+import Register from "./containers/register";
+import Profile from "./containers/profile";
 import store from "./store";
 
 import { Provider } from "react-redux";
@@ -21,7 +21,7 @@ class App extends React.Component {
                 </Route>
                 <Route path="profile" component={Profile} />
                 <Route path="dashboard" component={Dashboard} />
-              
+
             </Router>
         );
     }

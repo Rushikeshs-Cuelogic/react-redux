@@ -4,7 +4,7 @@ export const SignInForm = (props) => {
         <div className="container">
             <div className="form-group">
                 <label className="control-label">Username</label>
-                <input type="text" placeholder="Username" className="form-control" name="username" value={props.username} onChange={props.handleChange}/>
+                <input type="text" placeholder="Username" className="form-control" name="username" value={props.username} onChange={props.handleChange} />
             </div>
             <div className="form-group">
                 <label className="control-label">Password</label>
@@ -20,5 +20,5 @@ export const SignInForm = (props) => {
 
 SignInForm.propTypes = {
     handleChange: React.PropTypes.func,
-    onLogin:React.PropTypes.func
+    onLogin: React.PropTypes.func
 };

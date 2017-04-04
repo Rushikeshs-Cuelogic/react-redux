@@ -4,7 +4,7 @@ export const RegistrationForm = (props) => {
         <div className="container">
             <div className="form-group">
                 <label className="control-label">Username</label>
-                <input type="text" placeholder="Name" name="username"  value={props.username} className="form-control" onChange={props.handleChange} />
+                <input type="text" placeholder="Name" name="username" value={props.username} className="form-control" onChange={props.handleChange} />
             </div>
             <div className="form-group">
                 <label className="control-label">Email</label>
