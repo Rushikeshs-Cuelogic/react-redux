@@ -17,3 +17,8 @@ export const SignInForm = (props) => {
 
     );
 }
+
+SignInForm.propTypes = {
+    handleChange: React.PropTypes.func,
+    onLogin:React.PropTypes.func
+};
