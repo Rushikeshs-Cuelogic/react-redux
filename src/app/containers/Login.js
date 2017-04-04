@@ -3,10 +3,11 @@ import { browserHistory } from "react-router";
 import { connect } from "react-redux";
 import { userSigninRequest } from "../actions/login-action";
 import { SignInForm } from '../components/login';
+import store from "../store";
 
 class Login extends React.Component {
     constructor(props) {
-        console.log(props);
+        console.log("container", props);
         super();
         this.state = {
             user: {
@@ -16,16 +17,16 @@ class Login extends React.Component {
         }
     }
 
-    handleChange(event){
+    handleChange(event) {
+        console.log("handleChange",store.getState());
         const field = event.target.name;
-        const credentials = this.state.user;
-        user[field] = event.target.value;
-        return this.setState({ user: user });
+        const credentials = store.getState().user;
+        credentials[field] = event.target.value;
+      //  return this.setState({ user: credentials });
     }
 
     onLogin() {
-        console.log("login",this.state.user)
-        this.props.onLogin(this.state.user);
+        this.props.onLogin(store.getState().user);
     }
 
     render() {
