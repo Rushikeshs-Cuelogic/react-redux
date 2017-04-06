@@ -18,6 +18,6 @@ describe("Reducer: login Reducer", () => {
         // execute
         let newState = loginReducer({}, action);
         // verify
-        expect(newState).to.deep.equal({ user: { username: 'abc', email: 'abc' } });
+        expect(newState)==={ user: { username: 'abc', email: 'abc' } };
     });
 });

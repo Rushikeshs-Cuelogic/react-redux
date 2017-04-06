@@ -4,9 +4,10 @@ import { browserHistory } from 'react-router';
 
 export function registerUserReducer(state = {}, action) {
     switch (action.type) {
+        
         case actionTypes.REGISTER_USER:
             browserHistory.push('login');
-            return ({ ...state, registeredUser: action.registeredUser });
+            return ({ ...state, registeredUser: action.payload });
         default:
             return state;
     }

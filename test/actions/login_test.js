@@ -7,7 +7,7 @@ describe('Action: login', () => {
             username: "abc",
             email: "abc"
         }
-          // execute
+        
         expect(actionCreator.userSigninRequest(userData))=={ type: "AUTH_USER" };
       
     });

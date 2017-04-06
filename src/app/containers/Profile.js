@@ -18,11 +18,14 @@ class Profile extends React.Component {
                         </div>
                     </div>
                 </nav>
-                <hr />
-                <label>User Id:{this.props.user.user.username}</label>
-                <hr />
-                <label>Email:{this.props.user.user.email}</label>
-                <hr />
+
+
+                <div className="row" className="col-xs-10 col-xs-offset-1" >
+                    <label>User Id:{this.props.user.user.username}</label>
+                    <hr />
+                    <label>Email:{this.props.user.user.email}</label>
+                    <hr />
+                </div>
             </div>
         );
     }

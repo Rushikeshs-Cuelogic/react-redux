@@ -9,7 +9,7 @@ export const userSigninRequest = (userData) => {
     if ("abc" == userData.username && userData.password == "abc") {
         return {
             type: actionTypes.AUTH_USER,
-            user: {
+            payload: {
                 username: userData.username,
                 email:"abc@cuelogic.com" //storeState.registeredUser.registeredUser.email
             }
