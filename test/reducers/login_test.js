@@ -6,20 +6,18 @@ import { expect } from "chai";
 
 describe("Reducer: login Reducer", () => {
 
-    it('have user object in state', () => {
+    it('shuold have user object in state', () => {
         // setup
         let action = {
             type: ActionType.AUTH_USER,
-            payload: [{
-                "user": {
-                    "username": "",
-                    "email": ""
-                }
-            }]
+            user: {
+                "username": "abc",
+                "email": "abc"
+            }
         };
         // execute
-        let newState = loginReducer({ undefined }, action);
+        let newState = loginReducer({}, action);
         // verify
-        expect(newState).to.have.propery("user").to.be.a("object");
+        expect(newState).to.deep.equal({ user: { username: 'abc', email: 'abc' } });
     });
 });

@@ -26,18 +26,31 @@ describe("Component:SignInForm", (prop) => {
         LoginButton = wrapper.find("button");
     });
 
+    it('render without exploading ', () => {
+        expect(wrapper.length).equal(1)
+    });
+
     it("SignInForm should exist", () => {
         expect(wrapper).to.exist;
     });
 
-    it(" 2 text boxes should exist", () => {
+
+    it("should render two textfileds ", () => {
         expect(textField).to.have.length(2);
     });
 
-    it("login clicks, submit form", () => {
-        LoginButton.simulate("click");
-        props.onLogin();
-        sinon.assert.calledTwice(props.onLogin);
+    it("should render one button ", () => {
+        expect(LoginButton).to.have.length(1);
     });
 
+
+    it("login clicks, submit form", () => {
+        LoginButton.simulate("click");
+        let user = {
+            username: "abc",
+            password: "abc"
+        }
+        props.onLogin(user);
+        sinon.assert.calledTwice(props.onLogin);
+    });
 });
