@@ -3,7 +3,6 @@ import { Link } from "react-router";
 
 export const Dashboard = (props) => {
     return (
-
         <div className="col-xs-10 col-xs-offset-1" >
             <nav className="navbar navbar-inverse">
                 <div className="container-fluid">
@@ -12,7 +11,6 @@ export const Dashboard = (props) => {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                              <span className="icon-bar"></span>
-                              <span className="icon-bar"></span>
                         </button>
                         <a className="navbar-brand" href="http://www.cuelogic.com/">Cuelogic</a>
                     </div>
@@ -26,6 +24,5 @@ export const Dashboard = (props) => {
                 </div>
             </nav>
         </div >
-
     );
 }
