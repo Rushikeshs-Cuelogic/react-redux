@@ -8,15 +8,15 @@ export const Dashboard = (props) => {
             <nav className="navbar navbar-inverse">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                             <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
+                        <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                             <span className="icon-bar"></span>
+                              <span className="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="http://www.cuelogic.com/">Cuelogic</a>
+                        <a className="navbar-brand" href="http://www.cuelogic.com/">Cuelogic</a>
                     </div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
+                    <div className="collapse navbar-collapse" id="myNavbar">
                         <ul className="nav navbar-nav">
                              <li> <Link to={"/home"} activeClassName={"active"}>Home</Link></li>
                             <li><Link to={"/login"} activeClassName={"active"}>Login</Link> </li>
