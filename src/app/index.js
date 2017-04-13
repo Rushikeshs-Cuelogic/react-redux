@@ -8,6 +8,7 @@ import Register from "./containers/register";
 import Profile from "./containers/profile";
 import store from "./store";
 import { Home } from "./components/home";
+import { LazilyLoadFactory } from './LazilyLoad';
 
 import { Provider } from "react-redux";
 
