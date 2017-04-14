@@ -4,7 +4,7 @@ import React from "react";
 var assert = require('assert');
 import { expect } from "chai";
 
-describe("Reducer: login Reducer", () => {
+describe("Reducer: login", () => {
 
     it('shuold have user object in state', () => {
         // setup

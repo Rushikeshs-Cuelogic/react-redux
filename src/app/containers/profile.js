@@ -30,6 +30,7 @@ class Profile extends React.Component {
                         <label>Email:{this.props.user.user.email}</label>
                         <hr />
                     </div>
+                   
                 </div>
             </div>
 

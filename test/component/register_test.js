@@ -2,7 +2,7 @@ import React, { Component } from "react";
 var assert = require('assert');
 import { expect } from "chai";
 import { mount, shallow } from "enzyme";
-import { SignInForm } from "../../src/app/components/login";
+import { RegistrationForm } from "../../src/app/components/register";
 import sinon from 'sinon';
 
 describe("Component: login", (prop) => {
@@ -10,20 +10,20 @@ describe("Component: login", (prop) => {
     let wrapper;
     let textField;
     let sandbox;
-    let LoginButton;
+    let registrationButton;
     before(() => {
         sandbox = sinon.sandbox.create();
 
         props = {
-            userSigninRequest: sandbox.spy(),
+            userRegisterRequest: sandbox.spy(),
             handleChange: () => { },
-            onLogin: sandbox.spy(),
+            onRegister: sandbox.spy(),
 
         }
 
-        wrapper = shallow(<SignInForm  {...props} />);
+        wrapper = shallow(<RegistrationForm  {...props} />);
         textField = wrapper.find("input");
-        LoginButton = wrapper.find("button");
+        registrationButton = wrapper.find("button");
     });
 
     it('render without exploading ', () => {
@@ -35,22 +35,23 @@ describe("Component: login", (prop) => {
     });
 
 
-    it("should render two textfileds ", () => {
-        expect(textField).to.have.length(2);
+    it("should render three textfileds ", () => {
+        expect(textField).to.have.length(3);
     });
 
     it("should render one button ", () => {
-        expect(LoginButton).to.have.length(1);
+        expect(registrationButton).to.have.length(1);
     });
 
 
     it("login clicks, submit form", () => {
-        LoginButton.simulate("click");
+        registrationButton.simulate("click");
         let user = {
             username: "abc",
-            password: "abc"
+            password: "abc",
+            email:"abc@cuelogic.com"
         }
-        props.onLogin(user);
-        sinon.assert.calledTwice(props.onLogin);
+        props.onRegister(user);
+        sinon.assert.calledTwice(props.onRegister);
     });
 });

@@ -32,6 +32,8 @@ class App extends React.Component {
 }
 
 
-render(<Provider store={store}>
-    <App /></Provider>,
+render(
+    <Provider store={store}>
+    <App />
+    </Provider>,
     document.getElementById('appDiv-wrapper'));

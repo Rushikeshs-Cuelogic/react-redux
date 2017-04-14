@@ -14,7 +14,7 @@ global.window = doc.defaultView;
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('login component', () => {
+describe('Container: login ', () => {
     let store;
     beforeEach(() => {
         store = mockStore({
@@ -54,6 +54,8 @@ describe('login component', () => {
             }
          });
          
-        expect(wrapper.state('user').name==="");
+        expect(wrapper.state('user').name).to.equal('');
     });
+
+    
 });
