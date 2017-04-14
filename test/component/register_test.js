@@ -5,7 +5,7 @@ import { mount, shallow } from "enzyme";
 import { RegistrationForm } from "../../src/app/components/register";
 import sinon from 'sinon';
 
-describe("Component: login", (prop) => {
+describe("Component: register", (prop) => {
     let props;
     let wrapper;
     let textField;
